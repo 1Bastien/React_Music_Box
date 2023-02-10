@@ -3,6 +3,8 @@ import GlobalStyle from "./GlobalStyle";
 import lightTheme from "./themes/light.json";
 import darkTheme from "./themes/dark.json";
 import { useState } from "react";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 export default function Layout({ children }) {
     const [isLight, setIsLight] = useState(true);
@@ -15,11 +17,22 @@ export default function Layout({ children }) {
         <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
             <Wrapper>
                 <GlobalStyle />
-                {children}
-                <button onClick={handleToggleTheme}>{isLight ? "dark" : "light"} theme</button>
+                <Header isLight={isLight} handleToggleTheme={handleToggleTheme}/>
+                <Main>
+                    {children}
+                </Main>
+                <Footer />
             </Wrapper>
         </ThemeProvider>
     );
 }
 
 const Wrapper = styled.div``;
+
+const Main = styled.main`
+    min-height: calc(100vh - 160px);
+    width: 96%;
+    max-width: 1240px;
+    margin: auto;
+    margin-top: 32px;
+`;
