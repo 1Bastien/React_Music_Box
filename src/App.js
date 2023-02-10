@@ -1,9 +1,10 @@
 import './App.css';
+import Layout from 'components/UI/Layout';
 
 export default function App() {
-  return (
-    <div>
-      <h1>Couille</h1>
-    </div>
-  );
+    return (
+        <Layout>
+            <h1>Couille</h1>
+        </Layout>
+    );
 }
