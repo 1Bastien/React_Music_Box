@@ -31,6 +31,6 @@ const Wrapper = styled.div`
     }
     &:active::before {
         opacity: 1;
-        background: #985717;
+        background: #582900;
     }
 `;
