@@ -21,11 +21,38 @@ export default function useSounds() {
         })
     }, []);
 
+    function soundPlay(note) {
+        mySampler.current.triggerAttackRelease([note], 4)
+    }
+
+    function handleKeyDown({ key }) {
+        switch (key) {
+            case 'a':
+                soundPlay('C4');
+                break;
+            case 'z':
+                soundPlay('D#4');
+                break;
+            case 'e':
+                soundPlay('F#4');
+                break;
+            case 'r':
+                soundPlay('A4');
+                break;
+            default:
+                break;
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
     const buttonsList = [
-        { soundPlay: () => mySampler.current.triggerAttackRelease(["C4"], 4) },
-        { soundPlay: () => mySampler.current.triggerAttackRelease(["D#4"], 4) },
-        { soundPlay: () => mySampler.current.triggerAttackRelease(["F#4"], 4) },
-        { soundPlay: () => mySampler.current.triggerAttackRelease(["A4"], 4) }
+        { soundPlay: () => soundPlay("C4") }, { soundPlay: () => soundPlay("D#4") }, { soundPlay: () => soundPlay("F#4") }, { soundPlay: () => soundPlay("A4") }
     ];
 
     return { buttonsList };

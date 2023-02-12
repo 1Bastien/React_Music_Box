@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function Footer() {
     return (
         <Wrapper>
-            <p>footer</p>
+            <p>A écouter sans moderation !</p>
         </Wrapper>
     );
 }
