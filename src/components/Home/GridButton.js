@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-export default function GridButton({ isPlayed = false, soundPlay, id }) {
+export default function GridButton({ isPlayed = false, soundPlay, id, handleSampleChange }) {
     return (
         <Wrapper isPlayed={isPlayed} onClick={soundPlay}>
-            <label onClick={(e) => e.stopPropagation()} htmlFor={id}>bite</label>
-            <input onClick={(e) => e.stopPropagation()} id={id} type="file" />
+            <label onClick={(e) => e.stopPropagation()} htmlFor={id}>Installe ton prout !</label>
+            <input
+                onClick={(e) => e.stopPropagation()}
+                id={id}
+                type="file"
+                onChange={handleSampleChange}
+            />
         </Wrapper>
     );
 }

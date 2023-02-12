@@ -7,13 +7,15 @@ export default function Home() {
     return (
         <Wrapper>
             <Grid>
-                {buttonsList.map(({ soundPlay, isPlayed, id }, index) => {
+                {buttonsList.map(({ soundPlay, isPlayed, id, handleSampleChange }, index) => {
                     return <GridButton
                         key={index}
                         soundPlay={soundPlay}
                         isPlayed={isPlayed}
-                        id={id} />;
-                })}</Grid>
+                        id={id}
+                        handleSampleChange={handleSampleChange} />
+                })}
+            </Grid>
         </Wrapper>
     );
 }
