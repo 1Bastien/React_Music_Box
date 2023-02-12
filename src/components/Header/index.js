@@ -11,7 +11,7 @@ export default function Header({ isLight, handleToggleTheme }) {
             </div>
             <nav>
                 <Link to="/">
-                    <MenuEl isCurrentPage={location.pathname === "/"}>Home</MenuEl>
+                    <MenuEl isCurrentPage={location.pathname === "/"}>Prout</MenuEl>
                 </Link>
                 <Link to="/about">
                     <MenuEl isCurrentPage={location.pathname === "/about"}>About</MenuEl>
