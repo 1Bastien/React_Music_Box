@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function GridButton ({isPlayed = false}) {
+export default function GridButton ({isPlayed = false, soundPlay}) {
     return (
-        <Wrapper isPlayed={isPlayed}>
+        <Wrapper isPlayed={isPlayed} onClick={soundPlay}>
 
         </Wrapper>
     );
@@ -12,6 +12,7 @@ const Wrapper = styled.div`
     border-radius: 20px;
     background: #985717;
     position: relative;
+    overflow: hidden;
     &::before {
         border-radius: 20px;
         position: absolute;
