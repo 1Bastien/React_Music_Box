@@ -5,7 +5,7 @@ export default function Header({ isLight, handleToggleTheme }) {
     const location = useLocation();
     return (
         <Wrapper>
-            <h1>header</h1>
+            <h1>Boite à Prout !<h2>Brrrt, bah t'as pété !</h2></h1>
             <nav>
                 <Link to="/">
                     <MenuEl isCurrentPage={location.pathname === "/"}>Home</MenuEl>
@@ -14,7 +14,7 @@ export default function Header({ isLight, handleToggleTheme }) {
                     <MenuEl isCurrentPage={location.pathname === "/about"}>About</MenuEl>
                 </Link>
             </nav>
-            <button onClick={handleToggleTheme}>{isLight ? "dark" : "light"} theme</button>
+            <button onClick={handleToggleTheme}>Style {isLight ? "caca" : "pas caca"}</button>
         </Wrapper>
     );
 }
