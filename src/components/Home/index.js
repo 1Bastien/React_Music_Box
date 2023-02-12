@@ -7,8 +7,12 @@ export default function Home() {
     return (
         <Wrapper>
             <Grid>
-                {buttonsList.map(({ soundPlay, isPlayed }, index) => {
-                    return <GridButton key={index} soundPlay={soundPlay} isPlayed={isPlayed} />;
+                {buttonsList.map(({ soundPlay, isPlayed, id }, index) => {
+                    return <GridButton
+                        key={index}
+                        soundPlay={soundPlay}
+                        isPlayed={isPlayed}
+                        id={id} />;
                 })}</Grid>
         </Wrapper>
     );
@@ -18,8 +22,8 @@ const Wrapper = styled.div``;
 
 const Grid = styled.div`
 display: grid;
-width: 400px;
-height: 400px;
+width: 600px;
+height: 600px;
 border solid 1px;
 grid-template-columns: 1fr 1fr;
 column-gap: 12px;

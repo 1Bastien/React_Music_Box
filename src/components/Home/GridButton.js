@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export default function GridButton ({isPlayed = false, soundPlay}) {
+export default function GridButton({ isPlayed = false, soundPlay, id }) {
     return (
         <Wrapper isPlayed={isPlayed} onClick={soundPlay}>
-
+            <label onClick={(e) => e.stopPropagation()} htmlFor={id}>bite</label>
+            <input onClick={(e) => e.stopPropagation()} id={id} type="file" />
         </Wrapper>
     );
 }
@@ -22,8 +23,8 @@ const Wrapper = styled.div`
         bottom: 0;
         left: 0;
         z-index: 0;
-        background: ${(props)=>(props.isPlayed ? "#985717" : "#bf8013")};
-        opacity: ${props => props.isPlayed? "1" : "0"};
+        background: ${(props) => (props.isPlayed ? "#985717" : "#bf8013")};
+        opacity: ${props => props.isPlayed ? "1" : "0"};
         transition: 0.1s;
     }
     &:hover::before {
@@ -32,5 +33,14 @@ const Wrapper = styled.div`
     &:active::before {
         opacity: 1;
         background: #582900;
+    }
+    & input {
+        display: none;
+    }
+    & label {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+
     }
 `;

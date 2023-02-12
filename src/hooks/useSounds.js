@@ -16,20 +16,24 @@ export default function useSounds() {
 
     const buttonsList = [
         {
-            soundPlay: () => soundPlay("C4"), 
+            soundPlay: () => soundPlay("C4"),
             isPlayed: isAiguePlayed,
+            id: "aigue"
         },
         {
             soundPlay: () => soundPlay("D#4"),
             isPlayed: isCourtPlayed,
+            id: "court"
         },
         {
             soundPlay: () => soundPlay("F#4"),
             isPlayed: isLongPlayed,
+            id: "long"
         },
         {
             soundPlay: () => soundPlay("A4"),
             isPlayed: isRapidePlayed,
+            id: "rapide"
         }
     ];
 
@@ -66,13 +70,13 @@ export default function useSounds() {
                     soundPlay('D#4');
                     break;
                 case 'e':
-                    setIsLongPlayed(true);  
+                    setIsLongPlayed(true);
                     window.setTimeout(() => setIsLongPlayed(false), 1000);
                     soundPlay('F#4');
                     break;
                 case 'r':
                     setIsRapidePlayed(true);
-                    window.setTimeout(() => setIsRapidePlayed(false),1000);
+                    window.setTimeout(() => setIsRapidePlayed(false), 1000);
                     soundPlay('A4');
                     break;
                 default:
