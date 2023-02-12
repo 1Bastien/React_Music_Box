@@ -5,7 +5,10 @@ export default function Header({ isLight, handleToggleTheme }) {
     const location = useLocation();
     return (
         <Wrapper>
-            <h1>Boite à Prout !<h2>Brrrt, bah t'as pété !</h2></h1>
+            <div>
+                <h1>Boite à Prout !</h1>
+                <h2>Brrrt, bah t'as pété !</h2>
+            </div>
             <nav>
                 <Link to="/">
                     <MenuEl isCurrentPage={location.pathname === "/"}>Home</MenuEl>
