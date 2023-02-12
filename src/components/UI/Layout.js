@@ -34,5 +34,5 @@ const Main = styled.main`
     width: 96%;
     max-width: 1240px;
     margin: auto;
-    margin-top: 32px;
+    display: flex;
 `;

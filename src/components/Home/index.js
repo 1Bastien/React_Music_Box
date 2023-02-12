@@ -20,17 +20,19 @@ export default function Home() {
     );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+`;
 
 const Grid = styled.div`
 display: grid;
 width: 600px;
 height: 600px;
-border solid 1px;
 grid-template-columns: 1fr 1fr;
 column-gap: 12px;
 row-gap: 12px;
-padding: 24px;
 margin: auto;
 @media (max-width: 640px) {
     width: 400px;
