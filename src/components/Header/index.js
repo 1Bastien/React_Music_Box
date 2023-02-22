@@ -28,7 +28,6 @@ const Wrapper = styled.header`
     justify-content: space-between;
     padding: 0 24px;
     align-items: center;
-    border-bottom: solid 1px;
     & nav {
         display: flex;
     }
@@ -37,11 +36,12 @@ const Wrapper = styled.header`
         color: inherit;
     }
     & a:first-child {
-        margin-right: 12px;
+        margin-right: 16px;
     }
 `;
 
 const MenuEl = styled.div`
+font-size: 18px;
 padding-bottom: 2px;
 border-bottom: solid 2px ${props => (props.isCurrentPage ? "" : "transaprent")};
 &:hover {

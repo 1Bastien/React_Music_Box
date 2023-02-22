@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function GridButton({ isPlayed = false, soundPlay, id, handleSampleChange }) {
     return (
         <Wrapper isPlayed={isPlayed} onClick={soundPlay}>
-            <label onClick={(e) => e.stopPropagation()} htmlFor={id}>Installe ton prout !</label>
+            <label onClick={(e) => e.stopPropagation()} htmlFor={id}>💨</label>
             <input
                 onClick={(e) => e.stopPropagation()}
                 id={id}
@@ -46,6 +46,6 @@ const Wrapper = styled.div`
         position: absolute;
         right: 12px;
         top: 12px;
-
+        font-size: 24px;
     }
 `;
