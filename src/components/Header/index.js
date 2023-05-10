@@ -6,7 +6,7 @@ export default function Header({ isLight, handleToggleTheme }) {
     return (
         <Wrapper>
             <div>
-                <h1>Boite à Prout !</h1>
+                <h1>Boite à Prout ! V2</h1>
                 <h2>Brrrt, bah t'as pété !</h2>
             </div>
             <nav>
