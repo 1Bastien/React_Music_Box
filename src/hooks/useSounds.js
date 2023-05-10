@@ -1,42 +1,43 @@
 import { useState, useEffect, useRef } from 'react';
 import * as Tone from 'tone';
-import aigueEtCourt from 'assets/sounds/aigue-et-court.wav';
-import courtEtEfficace from 'assets/sounds/court-et-efficace.wav';
-import longEtGraves from 'assets/sounds/long-et-grave.wav';
-import rapideEtGraves from 'assets/sounds/rapide-et-grave.wav';
+
+import Guitare from 'assets/sounds/Guitare.wav';
+import Flute from 'assets/sounds/Flute.wav';
+import Piano from 'assets/sounds/Piano.wav';
+import Trompette from 'assets/sounds/Trompette.wav';
 
 
 export default function useSounds() {
     const mySampler = useRef(null);
 
-    const [isAiguePlayed, setIsAiguePlayed] = useState(false);
-    const [isCourtPlayed, setIsCourtPlayed] = useState(false);
-    const [isLongPlayed, setIsLongPlayed] = useState(false);
-    const [isRapidePlayed, setIsRapidePlayed] = useState(false);
+    const [isGuitarePlayed, setIsGuitarePlayed] = useState(false);
+    const [isFlutePlayed, setIsFlutePlayed] = useState(false);
+    const [isPianoPlayed, setIsPianoPlayed] = useState(false);
+    const [isTrompettePlayed, setIsTrompettePlayed] = useState(false);
 
     const buttonsList = [
         {
             soundPlay: () => soundPlay("C4"),
-            isPlayed: isAiguePlayed,
-            id: "aigue",
+            isPlayed: isGuitarePlayed,
+            id: "guitare",
             handleSampleChange: (e) => handleSampleChange("C4", e.target.files[0]),
         },
         {
             soundPlay: () => soundPlay("D#4"),
-            isPlayed: isCourtPlayed,
-            id: "court",
+            isPlayed: isFlutePlayed,
+            id: "flute",
             handleSampleChange: (e) => handleSampleChange("D#4", e.target.files[0]),
         },
         {
             soundPlay: () => soundPlay("F#4"),
-            isPlayed: isLongPlayed,
-            id: "long",
+            isPlayed: isPianoPlayed,
+            id: "piano",
             handleSampleChange: (e) => handleSampleChange("F#4", e.target.files[0]),
         },
         {
             soundPlay: () => soundPlay("A4"),
-            isPlayed: isRapidePlayed,
-            id: "rapide",
+            isPlayed: isTrompettePlayed,
+            id: "trompette",
             handleSampleChange: (e) => handleSampleChange("A4", e.target.files[0]),
         }
     ];
@@ -48,15 +49,15 @@ export default function useSounds() {
     function handleSampleChange(note, file) {
         let fileURL = URL.createObjectURL(file);
         let buffer = new Tone.Buffer(fileURL);
-        mySampler.current.add(note, buffer, () => alert("C'est ton prout maintenant !"));
+        mySampler.current.add(note, buffer, () => alert("C'est ta musique maintenant !"));
     }
 
     useEffect(() => {
         const sampler = new Tone.Sampler({
-            C4: aigueEtCourt,
-            "D#4": courtEtEfficace,
-            "F#4": longEtGraves,
-            A4: rapideEtGraves,
+            C4: Guitare,
+            "D#4": Flute,
+            "F#4": Piano,
+            A4: Trompette,
         }).toDestination();
 
         Tone.loaded().then(() => {
@@ -69,26 +70,31 @@ export default function useSounds() {
 
         function handleKeyDown({ key }) {
             switch (key) {
-                case 'a':
-                    setIsAiguePlayed(true);
-                    window.setTimeout(() => setIsAiguePlayed(false), 1000);
+
+                case 'g':
+                    setIsGuitarePlayed(true);
+                    window.setTimeout(() => setIsGuitarePlayed(false), 1000);
                     soundPlay('C4');
                     break;
-                case 'z':
-                    setIsCourtPlayed(true);
-                    window.setTimeout(() => setIsCourtPlayed(false), 1000);
-                    soundPlay('D#4');
-                    break;
-                case 'e':
-                    setIsLongPlayed(true);
-                    window.setTimeout(() => setIsLongPlayed(false), 1000);
+
+                case 'f':
+                    setIsFlutePlayed(true);
+                    window.setTimeout(() => setIsFlutePlayed(false), 1000);
+                   soundPlay('D#4');
+                   break;
+
+                case 'p':
+                    setIsPianoPlayed(true);
+                    window.setTimeout(() => setIsPianoPlayed(false), 1000);
                     soundPlay('F#4');
                     break;
-                case 'r':
-                    setIsRapidePlayed(true);
-                    window.setTimeout(() => setIsRapidePlayed(false), 1000);
+
+                case 't':
+                    setIsTrompettePlayed(true);
+                    window.setTimeout(() => setIsTrompettePlayed(false), 1000);
                     soundPlay('A4');
-                    break;
+                    break;    
+
                 default:
                     break;
             }
@@ -100,4 +106,4 @@ export default function useSounds() {
     }, []);
 
     return { buttonsList };
-}
+}   

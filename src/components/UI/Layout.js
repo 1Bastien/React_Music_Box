@@ -7,7 +7,19 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 
 export default function Layout({ children }) {
-    const [isLight, setIsLight] = useState(true);
+
+    let date = new Date();
+    let hour = date.getHours();
+
+    let theme = null;
+
+    if (hour < 8 || hour > 20) {
+        theme = false;
+    } else {
+        theme = true;
+    }
+
+    const [isLight, setIsLight] = useState(theme);
 
     function handleToggleTheme() {
         setIsLight(!isLight);
@@ -17,7 +29,7 @@ export default function Layout({ children }) {
         <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
             <Wrapper>
                 <GlobalStyle />
-                <Header isLight={isLight} handleToggleTheme={handleToggleTheme}/>
+                <Header isLight={isLight} handleToggleTheme={handleToggleTheme} />
                 <Main>
                     {children}
                 </Main>

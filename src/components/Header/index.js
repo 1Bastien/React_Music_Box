@@ -6,18 +6,17 @@ export default function Header({ isLight, handleToggleTheme }) {
     return (
         <Wrapper>
             <div>
-                <h1>Boite à Prout ! V2</h1>
-                <h2>Brrrt, bah t'as pété !</h2>
+                <h1>La Boite à Musique</h1>
             </div>
             <nav>
                 <Link to="/">
-                    <MenuEl isCurrentPage={location.pathname === "/"}>Prout</MenuEl>
+                    <MenuEl isCurrentPage={location.pathname === "/"}>Musique</MenuEl>
                 </Link>
                 <Link to="/about">
                     <MenuEl isCurrentPage={location.pathname === "/about"}>About</MenuEl>
                 </Link>
             </nav>
-            <button onClick={handleToggleTheme}>Style {isLight ? "caca" : "pas caca"}</button>
+            <button onClick={handleToggleTheme}>Style {isLight ? "sombre" : "claire"}</button>
         </Wrapper>
     );
 }
