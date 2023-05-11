@@ -13,7 +13,7 @@ export default function Header({ isLight, handleToggleTheme }) {
                     <MenuEl isCurrentPage={location.pathname === "/"}>Musique</MenuEl>
                 </Link>
                 <Link to="/about">
-                    <MenuEl isCurrentPage={location.pathname === "/about"}>About</MenuEl>
+                    <MenuEl isCurrentPage={location.pathname === "/about"}>A propos</MenuEl>
                 </Link>
             </nav>
             <button onClick={handleToggleTheme}>Style {isLight ? "sombre" : "claire"}</button>
