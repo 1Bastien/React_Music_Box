@@ -17,6 +17,13 @@ Le projet fournit également un thème dynamique qui s'adapte à l'heure de la j
 
 ---
 
+## Illustrations de l'application
+
+![Image 1](images/home_page.png)
+![Image 2](images/home_page_dark_mode.png)
+
+---
+
 ## Technologies utilisées
 
 Le projet utilise les technologies suivantes :
@@ -25,7 +32,25 @@ Le projet utilise les technologies suivantes :
 - **Tone.js**
 - **Styled Components** (Une bibliothèque de component)
 
-## Illustrations de l'application
+---
 
-![Image 1](images/home_page.png)
-![Image 2](images/home_page_dark_mode.png)
+## Installation
+
+```bash
+$ git clone https://github.com/1Bastien/Node_Api_Gym
+```
+```
+$ npm install
+```
+
+---
+
+## Running the app
+
+```bash
+# development
+$ npm run start
+```
+```bash
+# watch mode
+$ npm run start:dev
